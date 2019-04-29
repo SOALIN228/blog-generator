@@ -1,139 +1,83 @@
 ---
-title: JavaScript之DOM基础
+title: JavaScript运算符
 date: 2019-04-18 22:11:42
 tags:
 categories:
 	- JavaScript
 ---
 
-> 很多时候我们使用js对页面的操作，都是通多操作DOM，来操作页面，使页面展现出我们想要的效果
+> 熟练使用运算符，可以写出更优雅，更简洁的代码
 
 <!--more-->
 
-## 选取DOM元素的方法
+## 算术运算符
 
-| 方法         | 语法                     | 说明                                                         |
-| ------------ | ------------------------ | ------------------------------------------------------------ |
-| 通过ID       | getElementById()         | 返回带有指定ID的元素                                         |
-| 通过标签名   | getElementsByTagName()   | 返回带有指定标签名的所有元素集合，类数组对象                 |
-| 通过name属性 | getElementsByName()      | 返回指定name属性值的所有元素集合，类数组对象                 |
-| 通过CSS类    | getElementsByClassName() | 返回指定class名称的所有元素集合，类数组对象                  |
-| 上述都可     | querySelector()          | 返回选择器或选择器组匹配的第一个元素,如果找不到，则返回`null` |
-| 上述都可     | querySelectorAll()       | 返回一个 `NodeList` 表示元素的列表                           |
+#### 减法运算符
 
+string转化为数值
 
-## style
-
-```javascript
-// 获取id为box的元素
-var box=document.getElementById("box");
-
-// 设置元素的属性时减号连接的复合形式时必需要转换为驼峰形式
-box.style.color='#f00';
-box.style.fontWeight="bold";
+```
+'123' - 0 // 123 最便捷的转化成数值的方法
 ```
 
+#### 加法运算符
 
+数值转化为string
 
-## innerHTML
-
-```javascript
-*.innerHTML // 获取标签内容
-*.innerHTML+='程序' // 设置标签内容
+```
+1 + '' // '1'
 ```
 
+## 布尔运算符
 
+#### 取反运算符（!）
 
-## className
+取反运算符是一个感叹号，用于将布尔值变为相反值，即`true`变成`false`，`false`变成`true`
 
-```javascript
-*.className // 获取标签class属性
-*.className="current" // 设置标签class属性
+```
+!true // false
+!false // true
 ```
 
+如果对一个值连续做两次取反运算，等于将其转为对应的布尔值
 
+#### 且运算符（&&）
 
-## classList
+如果第一个运算子的布尔值为`true`，则返回第二个运算子的值
 
-**length**
+如果第一个运算子的布尔值为`false`，则直接返回第一个运算子的值，且不再对第二个运算子求值
 
-获取元素类名的个数
+取代`if`结构
 
-```javascript
-document.getElementById('box').classList.length
 ```
-
-**item**
-
-获取元素的类名
-
-```javascript
-document.getElementById('box').classList.item(0)
-```
-
-**add**
-
-为元素添加指定类名
-
-```javascript
-document.getElementById('box').classList.add('green')
-```
-
-**remove**
-
-移除元素上指定类名
-
-```javascript
-document.getElementById('box').classList.remove('red')
-```
-
-**contains**
-
-检测元素是否含有指定类名
-
-```javascript
-document.getElementById('box').classList.contains('red')
-```
-
-**toggle**
-
-如果不存在指定类名就添加，存在就删除
-
-```javascript
-document.getElementById('box').onclick = function() {
-  this.classList.toggle('red')
+if (i) {
+  doSomething();
 }
+
+// 等价于
+
+i && doSomething();
 ```
 
+#### 或运算符（||）
 
+如果第一个运算子的布尔值为`true`，则返回第一个运算子的值，且不再对第二个运算子求值
 
-## 总结
+如果第一个运算子的布尔值为`false`，则返回第二个运算子的值
 
-获取到元素的dom后
+短路规则对这个运算符也适用, 常用在如果第一个运算可能为null，则使用或运算添加一个' ',避免报错
 
-自身的属性如id，align，type等可以直接通过 `.属性名` 来操作
+```
+var x = 1;
+true || (x = 2) // true
+x // 1
+```
 
-class属性用 `.className` 来操作
+#### 三元条件运算符
 
-getAttribute() 可以获得所有属性
+如果第一个表达式的布尔值为`true`，则返回第二个表达式的值，否则返回第三个表达式的值
 
-setAttribute() 可以设置所有属性
-
-removeAttribute() 移除指定属性
-
-```html
-<p id="text" class="text" align="center" data-type="title">文本</p>
-<input type="text" name="user" value="user" id="user" validate="true">
-<script>
-    var p=document.getElementById("text");
-    var user=document.getElementById("user");
-    console.log(p.getAttribute("class"));  //p.className
-    console.log(user.getAttribute("validate"));
-    // 给p设置一个data-color的属性
-    p.setAttribute("data-color","red");
-    // 给input设置一个isRead的属性
-    user.setAttribute("isRead","false");
-    // 删除p上的align属性
-    p.removeAttribute("align");
-</script>
+```
+'t' ? 'hello' : 'world' // "hello"
+0 ? 'hello' : 'world' // "world"
 ```
