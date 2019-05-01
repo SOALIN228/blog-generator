@@ -9,7 +9,6 @@ categories:
 > JavaScript共有七种数据类型，让我们先来学习一下他的六种基础数据类型的知识吧，只有学好基础知识，在日后的开发工作中，才能做到游刃有余
 
 <!--more-->
-
 ## 概述
 
 JavaScript 的数据类型，共有七种, 对象是最复杂的数据类型，又可以分成三个子类型
@@ -48,7 +47,7 @@ typeof null // "object"
 
 ## null, undefined 和布尔值
 
-#### null 和 undefined
+### null 和 undefined
 
 `null`与`undefined`都可以表示“没有”，含义非常相似
 
@@ -66,7 +65,9 @@ var  o = new Object();
 o.p // undefined
 ```
 
-#### 布尔值
+
+
+### 布尔值
 
 布尔值代表“真”和“假”两个状态。“真”用关键字`true`表示，“假”用关键字`false`表示
 
@@ -79,7 +80,9 @@ o.p // undefined
 - `NaN`
 - `""`或`''`（空字符串）
 
-#### 转换成布尔
+
+
+### 转换成布尔
 
 取反两次就会变成Boolean
 
@@ -91,11 +94,13 @@ o.p // undefined
 
 ## 数值
 
-#### NaN
+### NaN
 
 `NaN` 是 JavaScript 的特殊值，表示“非数字”，它的数据类型依然属于 `number` 
 
-#### parseInt()
+
+
+### parseInt()
 
 用于将字符串转为整数,  头部空格会被自动去除
 
@@ -103,7 +108,9 @@ o.p // undefined
 parseInt('123', 10) // 123
 ```
 
-#### parseFloat()
+
+
+### parseFloat()
 
 用于将一个字符串转为浮点数
 
@@ -111,7 +118,9 @@ parseInt('123', 10) // 123
 parseFloat('3.14') // 3.14
 ```
 
-#### isNaN()
+
+
+### isNaN()
 
 用来判断一个值是否为`NaN` 
 
@@ -121,7 +130,7 @@ parseFloat('3.14') // 3.14
 
 ## 字符串
 
-#### 转义
+### 转义
 
 反斜杠（\）在字符串内有特殊含义，用来表示一些特殊字符，所以又称为转义符
 
@@ -133,7 +142,9 @@ parseFloat('3.14') // 3.14
 - `\"` ：双引号
 - `\\` ：反斜杠
 
-#### length
+
+
+### length
 
 返回字符串的长度
 
@@ -142,7 +153,9 @@ var s = 'hello'
 s.length // 5
 ```
 
-#### 多行字符串
+
+
+### 多行字符串
 
 用 `+` 连接
 
@@ -151,7 +164,9 @@ var s = '123' +
 		'456'
 ```
 
-#### 类型转换为字符串
+
+
+### 类型转换为字符串
 
 ```javascript
 var a = 1
@@ -164,11 +179,13 @@ a.toString() // '1'
 
 对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合
 
-#### 对象的引用
+### 对象的引用
 
 如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量
 
-#### 属性的读取
+
+
+### 属性的读取
 
 读取对象的属性，有两种方法，一种是使用点运算符，还有一种是使用方括号运算符(**一定要加引号**)
 
@@ -181,7 +198,9 @@ obj.p // "Hello World"
 obj['p'] // "Hello World"
 ```
 
-#### 属性的赋值
+
+
+### 属性的赋值
 
 ```javascript
 var obj = {}
@@ -190,7 +209,9 @@ obj.foo = 'Hello'
 obj['bar'] = 'World'
 ```
 
-#### 属性的查看
+
+
+### 属性的查看
 
 查看一个对象本身的所有属性，可以使用`Object.keys`方法
 
@@ -203,7 +224,9 @@ var obj = {
 Object.keys(obj) // ['key1', 'key2']
 ```
 
-#### 属性的删除
+
+
+### 属性的删除
 
 `delete`命令用于删除对象的属性，删除成功后返回`true`
 
@@ -216,7 +239,9 @@ obj.p // undefined
 Object.keys(obj) // []
 ```
 
-#### 属性是否存在
+
+
+### 属性是否存在
 
 `in`运算符用于检查对象是否包含某个属性, 包含就返回`true`，否则返回`false`
 
@@ -234,7 +259,9 @@ if ('toString' in obj) {
 }
 ```
 
-#### 属性的遍历
+
+
+### 属性的遍历
 
 `for...in`循环用来遍历一个对象的全部属性
 
@@ -251,44 +278,73 @@ for (var i in obj) {
 
 ## 函数
 
-#### 函数的声明
+### 函数的5种声明
 
-**function 命令**
-
-```javascript
-function print(s) {
-  console.log(s);
-}
-```
-
-**函数表达式**
+**具名函数**
 
 ```javascript
-var print = function(s) {
-  console.log(s);
-};
+function x1 () {}
 ```
 
-#### 函数名的提升
+**匿名函数**
+
+```javascript
+var x2 = function () {}
+```
+
+**具名函数赋值**
+
+```javascript
+var x3 = function y () {}
+
+x3() // 只能在函数内部访问y，外部要通过x3来访问
+```
+
+**window.Function**
+
+```javascript
+var x4 = new Function('x', 'y', 'return x+y')
+
+x4(1,2) // 3
+```
+
+**箭头函数**
+
+```javascript
+var x5 = (x, y) => { return x+y }
+
+x5(1,2) // 3
+```
+
+
+
+### 函数名的提升
 
 JavaScript 引擎将函数名视同变量名，所以采用`function`命令声明函数时，整个函数会像变量声明一样，被提升到代码头部
 
-#### name 属性
+
+
+### name 属性
 
 函数的`name`属性返回函数的名字
 
 ```javascript
-function f1() {}
-f1.name // "f1"
+function x1 () {}
+x1.name // x1
 
-var f2 = function () {};
-f2.name // "f2"
+var x2 = function () {}
+x2.name // x2
 
-var f3 = function myName() {};
-f3.name // 'myName'
+var x3 = function y () {}
+x3.name // y
+
+var x4 = new Function('x', 'y', 'return x+y')
+x4.name //anonymous 匿名的意思
 ```
 
-#### length 属性
+
+
+### length 属性
 
 函数的`length`属性返回函数预期传入的参数个数
 
@@ -297,7 +353,9 @@ function f(a, b) {}
 f.length // 2
 ```
 
-#### toString()
+
+
+### toString()
 
 函数的`toString`方法返回一个字符串，内容是函数的源码
 
@@ -312,7 +370,9 @@ f.toString()
 // }
 ```
 
-#### 函数本身的作用域
+
+
+### 函数本身的作用域
 
 函数本身也是一个值，也有自己的作用域。它的作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。
 
@@ -330,9 +390,11 @@ function f() {
 f() // 1
 ```
 
-#### 参数传递方式
 
-函数参数如果是原始类型的值（数值、字符串、布尔值），传递方式是传值传递（passes by value）。这意味着，在函数体内修改参数值，不会影响到函数外部
+
+### 参数传递方式
+
+函数参数如果是原始类型的值（数值、字符串、布尔值），传递方式是值传递。这意味着，在函数体内修改参数值，不会影响到函数外部
 
 ```javascript
 var p = 2;
@@ -369,7 +431,9 @@ f(obj);
 obj // [1, 2, 3]
 ```
 
-#### arguments 对象
+
+
+### arguments 对象
 
 `arguments`对象包含了函数运行时的所有参数，`arguments[0]`就是第一个参数，`arguments[1]`就是第二个参数，以此类推。
 
@@ -397,16 +461,16 @@ for (var i = 0; i < arguments.length; i++) {
 }
 ```
 
-#### 闭包
 
-函数外部无法读取函数内部声明的变量
 
-但是`f2`可以读取`f1`的局部变量，那么只要把`f2`作为返回值，我们不就可以在`f1`外部读取它的内部变量了吗！
+### 闭包
+
+如果一个函数，使用了它范围外的变量，那么（这个函数+这个变量）就叫闭包
 
 ```javascript
 function f1() {
-  var n = 999;
-  function f2() {
+  var n = 999; // 变量
+  function f2() { // 函数
     console.log(n);
   }
   return f2;
@@ -456,7 +520,9 @@ p1.setAge(25);
 p1.getAge() // 25
 ```
 
-#### 立即调用的函数表达式
+
+
+### 立即调用的函数表达式
 
 ```javascript
 (function(){ /* code */ }());
@@ -492,7 +558,9 @@ arr[1] // [1, 2, 3]
 arr[2] // function (){return true;}
 ```
 
-#### 数组的本质
+
+
+### 数组的本质
 
 数组属于一种特殊的对象
 
@@ -503,7 +571,9 @@ Object.keys(arr)
 // ["0", "1", "2"]
 ```
 
-#### length 属性
+
+
+### length 属性
 
 数组的`length`属性，返回数组的成员数量
 
@@ -520,9 +590,11 @@ arr.length = 0;
 arr // []
 ```
 
-#### for...in 循环和数组的遍历
 
-`for...in`循环可以遍历数组,但是`for...in`不仅会遍历数组所有的数字键，还会遍历非数字键,所以，不推荐使用`for...in`遍历数组
+
+### for...in 循环和数组的遍历
+
+`for...in`循环可以遍历数组,但是`for...in`不仅会遍历数组所有的数字键，还会遍历非数字键,所以不推荐使用`for...in`遍历数组
 
 ```javascript
 var a = [1, 2, 3];
@@ -540,3 +612,4 @@ for (var key in a) {
   console.log(key); // 0 1 2 foo
 }
 ```
+

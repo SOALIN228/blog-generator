@@ -16,7 +16,7 @@ categories:
 
 string转化为数值
 
-```
+```javascript
 '123' - 0 // 123 最便捷的转化成数值的方法
 ```
 
@@ -24,9 +24,11 @@ string转化为数值
 
 数值转化为string
 
-```
+```javascript
 1 + '' // '1'
 ```
+
+
 
 ## 布尔运算符
 
@@ -34,7 +36,7 @@ string转化为数值
 
 取反运算符是一个感叹号，用于将布尔值变为相反值，即`true`变成`false`，`false`变成`true`
 
-```
+```javascript
 !true // false
 !false // true
 ```
@@ -49,7 +51,7 @@ string转化为数值
 
 取代`if`结构
 
-```
+```javascript
 if (i) {
   doSomething();
 }
@@ -67,7 +69,7 @@ i && doSomething();
 
 短路规则对这个运算符也适用, 常用在如果第一个运算可能为null，则使用或运算添加一个' ',避免报错
 
-```
+```javascript
 var x = 1;
 true || (x = 2) // true
 x // 1
@@ -77,7 +79,7 @@ x // 1
 
 如果第一个表达式的布尔值为`true`，则返回第二个表达式的值，否则返回第三个表达式的值
 
-```
+```javascript
 't' ? 'hello' : 'world' // "hello"
 0 ? 'hello' : 'world' // "world"
 ```
