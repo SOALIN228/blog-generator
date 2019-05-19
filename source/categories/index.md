@@ -8,4 +8,5 @@ categories:
 	- CSS
 	- JavaScript
 	- Sass
+	- ES6
 ---

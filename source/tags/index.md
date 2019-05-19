@@ -8,4 +8,5 @@ tags:
 	- CSS
 	- JavaScript
 	- Sass
+	- ES6
 ---

@@ -1,5 +1,5 @@
 ---
-title: 新增类型和属性
+title: input新增类型和属性
 date: 2019-04-15 22:36:11
 categories: 
 	- HTML5
@@ -9,22 +9,20 @@ categories:
 
 <!--more-->
 
- ## input新增类型
+ ## 新增类型
 
   在移动端类型不同，调出的键盘不同，在pc端可以配合`:valid` 和 `:invalid`做表单验证
 
   -  `<input type='email'>` 
-
   -  `<input type='url'>` 
-
   -  `<input type='tel'>`
-
   -  `<input type='number'>` 
-
   -  `<input type='search'>`
 
 
-  ## input新增属性
+
+
+  ## 新增属性
 
   - autocomplete=“on”
 
@@ -45,13 +43,3 @@ categories:
   - required="required"
 
     输入不能为空
-
-  ## 链接属性
-
-  - sizes 指定地址栏图标的大小
-
-    `<link rel="icon" herf="icon.gif" type="image/gif" size="16x16">`
-
-  - herf 用于文档中相对 URL 地址的基础 URL
-
-    `<base herf="http://localhost/" target="_black">`
