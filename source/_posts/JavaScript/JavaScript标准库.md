@@ -1,5 +1,5 @@
 ---
-title: JavaScript标准库一
+title: JavaScript标准库
 date: 2019-04-30 11:04:39
 tags:
 categories:
