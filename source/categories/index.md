@@ -9,4 +9,6 @@ categories:
 	- JavaScript
 	- Sass
 	- ES6
+	- Vue
+	- Java
 ---

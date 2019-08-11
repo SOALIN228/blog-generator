@@ -9,4 +9,6 @@ tags:
 	- JavaScript
 	- Sass
 	- ES6
+	- Vue
+	- Java
 ---
